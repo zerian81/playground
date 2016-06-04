@@ -10,7 +10,7 @@
 	"Generate a list of primes using the sieve of eratosthenes algorithm"
 	[n]
 	(loop [primes [] candidates (range 2 (inc n))] 
-		(if (>= (first candidates) (Math/sqrt (last candidates))) 
+		(if (>= (first candidates) (Math/sqrt (apply max candidates))) 
 			(concat primes candidates)
 			(recur (conj primes (first candidates)) (filterMultiplesOf (first candidates) (rest candidates))) 
 			)))
